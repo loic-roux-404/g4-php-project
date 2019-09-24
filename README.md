@@ -1,4 +1,4 @@
-# Setup Prestashop
+# MVC project - G4 institute
 
 ### Base de donnée accès
 ---
