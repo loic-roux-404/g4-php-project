@@ -1,6 +1,7 @@
 <?php
+namespace DvPhp\Models\Manager\ModelManager;
 
-class secteurs_structure{
+class SecteursStructure{
   private $_idSectStruct;
   private $_idStructure;
   private $_idSecteur;

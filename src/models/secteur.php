@@ -1,23 +1,30 @@
 <?php
 
-class secteur
+class Secteur
 {
   private $_libelle;
 
-  function __contstruct($libelle)
+  function __contstruct(string $libelle)
   {
       $this->_libelle = $libelle;
   }
 
-  public function get_libelle()
+  /**
+   * Get the value of _libelle
+   * @return string
+   */ 
+  public function getLibelle() : string
   {
     return $this->_libelle;
   }
 
-  public function set_libelle($libelle)
+  /**
+   * Set the value of _libelle
+   *
+   * @param string $libelle
+   */ 
+  public function setLibelle(string $_libelle) 
   {
-    $this->_libelle = $libelle;
+    $this->_libelle = $_libelle;
   }
 }
-
-?>
