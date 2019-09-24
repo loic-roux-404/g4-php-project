@@ -1,6 +1,7 @@
 <?php
 
-class structure {
+class structure
+{
   private $_idStructure;
   private $_nom;
   private $_rue;
@@ -10,7 +11,7 @@ class structure {
   private $_actionnaire;
   private $_donateur;
 
-  function __contstruct($idStructure,$nom,$rue,$codePostal,$ville,$statut,$actionnaire,$donateur)
+  function __contstruct($idStructure, $nom, $rue, $codePostal, $ville, $statut, $actionnaire, $donateur)
   {
     $this->_idStructure = $idStructure;
     $this->_nom = $nom;
@@ -22,12 +23,15 @@ class structure {
     $this->_donnateur = $donateur;
   }
 
-  public function get_idStruct()
-  {
-    return $this->_idStructure;
-  }
+  // public function get_idStruct()
+  // {
+  //   return $this->_idStructure;
+  // }
 
-  public function set_idStruct($)
+  // public function set_idStruct(int $_idStructure)
+  // {
+  //   $this->_idStructure = $_idStructure;
+  // }
 
   public function get_nom()
   {
@@ -99,5 +103,3 @@ class structure {
     $this->_donateur = $donateur;
   }
 }
-
-?>
