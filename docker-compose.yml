@@ -1,0 +1,49 @@
+version: '2'
+
+services:
+    site:
+        build: services/alp-nginx-fpm
+        ports:
+            - "80:80"
+            - "443:443"
+        environment:
+            DATABASE_URL: mysql://foo:bar@mysql:3306/foo
+            DATABASE_HOST: 127.0.0.1
+        restart: always
+        volumes:
+            - ./prestashop:/var/www/html/:rw,cached
+        networks:
+            - front
+            - back
+
+    mysql:
+        image: sameersbn/mysql
+        environment:
+            - DB_USER=foo
+            - DB_PASS=bar
+            - DB_NAME=foo
+            - DB_REMOTE_ROOT_NAME=root
+            - DB_REMOTE_ROOT_PASS=bar
+            - MYSQL_CHARSET=utf8
+            - MYSQL_COLLATION=utf8_unicode_ci
+        volumes:
+            - ./services/mysql/data:/var/lib/mysql
+        networks:
+            - back
+
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin:4.7
+        ports:
+            - "9010:80"
+        environment:
+            PMA_HOST: mysql
+            PMA_USER: foo
+            PMA_PASSWORD: bar
+        networks:
+            - back
+
+networks:
+    front:
+        driver: bridge
+    back:
+        driver: bridge
