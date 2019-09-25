@@ -1,4 +1,6 @@
 <?php
+namespace SRC\Models\Manager\ModelManager;
+
 
 class Secteur
 {

@@ -1,5 +1,5 @@
 <?php
-namespace DvPhp\Models\Manager\ModelManager;
+namespace SRC\Models\Manager\ModelManager;
 
 class SecteursStructure{
   private $_idSectStruct;
