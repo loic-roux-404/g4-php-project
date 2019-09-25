@@ -29,4 +29,11 @@ class Secteur implements IModelManager
   {
     $this->_libelle = $_libelle;
   }
+
+
+
+  public function index(int $id)
+  {
+    IModelManager::index(CLASS_NAME, $id);
+  }
 }

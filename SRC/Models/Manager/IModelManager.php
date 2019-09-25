@@ -2,8 +2,15 @@
 
 namespace SRC\Models\Manager;
 
-interface IModelManager{
-    
-}
+interface IModelManager
+{
+    static function index();
 
-?>
+    static function delete();
+
+    static function update();
+
+    static function create();
+
+    static function setCells();
+}

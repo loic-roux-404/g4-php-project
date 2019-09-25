@@ -8,6 +8,8 @@ include 'bootstrap.php';
  * Namespaces
  */
 
+ 
+
 //use \SRC\Helpers\IFolders as F;
 
 ?>
@@ -19,6 +21,9 @@ include 'bootstrap.php';
 <body>
     <div class="container">
         <?php include(VF . "navbar.php"); ?>
+
+
+
 
         <?php include(VF . "footer.php"); ?>
     </div>

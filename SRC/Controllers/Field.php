@@ -6,7 +6,17 @@ class Form
 {
     private $_fieldName;
     private $_fieldType;
-    private $_fieldValue;
+    private $_arrayData;
+
+    public function __construct($_arrayData)
+    {
+        $this->ArrayData = $_arrayData;
+    }
+
+
+    public function generate(){
+        
+    }
 }
 
 
