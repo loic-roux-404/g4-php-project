@@ -1,11 +1,14 @@
 <?php
 
-namespace SRC\Models;
+namespace src\Models;
 
-namespace SRC\Models\Manager\IModelManager;
-
-class Structure implements IModelManager
+class Structure extends ModelManager
 {
+  /**
+   * const Dataabse table value
+   */
+  const CLASS_NAME = 'secteurs_structure';
+
   private $_idStructure;
   private $_nom;
   private $_rue;
@@ -157,4 +160,11 @@ class Structure implements IModelManager
   {
     IModelManager::index(CLASS_NAME, $id);
   }
+  public function fetchAll()
+  {
+    IModelManager::fetchAll(CLASS_NAME);
+  }
+
+  public function create()
+  { }
 }

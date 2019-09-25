@@ -1,16 +1,12 @@
 <?php
-ini_set('display_errors', 1);
-/**
- * Autoloader
- */
-include 'bootstrap.php';
-/**
- * Namespaces
- */
 
- 
+use src\Autoloader;
 
-//use \SRC\Helpers\IFolders as F;
+const VF = 'Views/partials/';
+
+//import 
+require_once 'bootstrap.php';
+Autoloader::register();
 
 ?>
 <!DOCTYPE html>
@@ -21,9 +17,6 @@ include 'bootstrap.php';
 <body>
     <div class="container">
         <?php include(VF . "navbar.php"); ?>
-
-
-
 
         <?php include(VF . "footer.php"); ?>
     </div>
