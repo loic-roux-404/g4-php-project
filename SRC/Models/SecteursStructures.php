@@ -8,12 +8,13 @@ class SecteursStructure implements IModelManager
 {
   const CLASS_NAME = 'SecteursStructure';
 
-  private $_id_SectStruct;
+  private $_id;
   private $_id_Structure;
   private $_id_Secteur;
 
-  public function __invoke(){
-    IModelManager::cells(get_object_vars($this));
+  public function __invoke()
+  {
+    IModelManager::setCells(get_object_vars($this));
   }
 
   function __contstruct($idSectStruct, $idStructure, $idSecteur)
@@ -27,5 +28,4 @@ class SecteursStructure implements IModelManager
   {
     IModelManager::index(CLASS_NAME, $id);
   }
-
 }

@@ -31,7 +31,19 @@ class ModelManager implements IModelManager
      * @return void
      */
     public function index(string $en, int $id)
-    { }
+    {
+        $stmt = $this->connect()->prepare("select * from structure");
+
+        $res = $stmt->execute();
+        var_dump($res);
+
+        if ($res) {
+            $lines = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            var_dump($lines);
+        }
+
+        $res = $stmt->execute();
+    }
     /**
      * function update
      * @param string $en
@@ -49,7 +61,19 @@ class ModelManager implements IModelManager
      * @return void
      */
     public function create(string $en, array $data): void
-    { }
+    {
+        // prepare sql and bind parameters
+        $stmt ="";
+        foreach ($this->_cells as $type => $value) {
+            
+        }
+        $stmt = $this->connect()->prepare("insert into " . $en . " (". id, libelle) values (:id, :libelle)");
+
+
+
+
+        $stmt->execute([":id" => NULL, ":libelle" => "Informatique" . rand()]);
+    }
     /**
      * function delete
      *

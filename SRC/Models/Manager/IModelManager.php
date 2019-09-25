@@ -12,5 +12,5 @@ interface IModelManager
 
     static function create();
 
-    static function cells();
+    static function setCells();
 }
