@@ -2,7 +2,7 @@
 
 namespace SRC\Controllers;
 
-class Form
+class Field
 {
     private $_fields;
 }
