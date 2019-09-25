@@ -1,5 +1,5 @@
 <?php
-namespace SRC\Models\Manager\ModelManager;
+namespace SRC\Models;
 
 
 class Secteur
