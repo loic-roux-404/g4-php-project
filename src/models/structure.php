@@ -1,6 +1,7 @@
 <?php
+namespace SRC\Models;
 
-class structure
+class Structure extends IModelManager
 {
   private $_idStructure;
   private $_nom;
@@ -20,86 +21,139 @@ class structure
     $this->_ville = $ville;
     $this->_statut = $statut;
     $this->_actionnaire = $actionnaire;
-    $this->_donnateur = $donateur;
+    $this->_donateur = $donateur;
   }
 
-  // public function get_idStruct()
-  // {
-  //   return $this->_idStructure;
-  // }
 
-  // public function set_idStruct(int $_idStructure)
-  // {
-  //   $this->_idStructure = $_idStructure;
-  // }
+  /**
+   * Get the value of _idStructure
+   */ 
+  public function getIdStructure()
+  {
+    return $this->_idStructure;
+  }
 
-  public function get_nom()
+
+  /**
+   * Get the value of _nom
+   */ 
+  public function getNom()
   {
     return $this->_nom;
   }
 
-  public function set_nom($nom)
+  /**
+   * Set the value of _nom
+   *
+   */ 
+  public function setNom($_nom)
   {
-    $this->_nom = $nom;
+    $this->_nom = $_nom;
+
+     
   }
 
-  public function get_rue()
+  /**
+   * Get the value of _rue
+   */ 
+  public function getRue()
   {
     return $this->_rue;
   }
 
-  public function set_rue($rue)
+  /**
+   * Set the value of _rue
+   *
+   */ 
+  public function setRue($_rue)
   {
-    $this->_rue = $rue;
+    $this->_rue = $_rue;
   }
 
-  public function get_codePostal()
+  /**
+   * Get the value of _codePostal
+   */ 
+  public function getCodePostal()
   {
     return $this->_codePostal;
   }
 
-  public function set_codePostal($codePostal)
+  /**
+   * Set the value of _codePostal
+   */ 
+  public function setCodePostal($_codePostal)
   {
-    $this->_codePostal = $codePostal;
+    $this->_codePostal = $_codePostal;
   }
 
-  public function get_ville()
+  /**
+   * Get the value of _ville
+   */ 
+  public function getVille()
   {
     return $this->_ville;
   }
 
-  public function set_ville($ville)
+  /**
+   * Set the value of _ville
+   */ 
+  public function setVille($_ville)
   {
-    $this->_ville = $ville;
+    $this->_ville = $_ville;
+
+     
   }
 
-  public function get_statut()
+  /**
+   * Get the value of _statut
+   */ 
+  public function getStatut()
   {
     return $this->_statut;
   }
 
-  public function set_statut($statut)
+  /**
+   * Set the value of _statut
+   *
+   */ 
+  public function setStatut($_statut)
   {
-    $this->_statut = $statut;
+    $this->_statut = $_statut;
+
+     
   }
 
-  public function get_actionnaire()
+  /**
+   * Get the value of _actionnaire
+   */ 
+  public function getActionnaire()
   {
     return $this->_actionnaire;
   }
 
-  public function set_actionnaire($actionnaire)
+  /**
+   * Set the value of _actionnaire
+   */ 
+  public function setActionnaire($_actionnaire)
   {
-    $this->_actionnaire = $actionnaire;
+    $this->_actionnaire = $_actionnaire;
+
+     
   }
 
-  public function get_donateur()
+  /**
+   * Get the value of _donateur
+   */ 
+  public function getDonateur()
   {
     return $this->_donateur;
   }
 
-  public function set_donateur($donateur)
+  /**
+   * Set the value of _donateur
+   */ 
+  public function setDonateur($_donateur)
   {
-    $this->_donateur = $donateur;
+    $this->_donateur = $_donateur; 
   }
 }

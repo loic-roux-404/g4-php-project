@@ -1,8 +1,9 @@
 <?php
 
 namespace SRC\Models\Manager;
+ 
 
-abstract class ModelManager
+class ModelManager implements IModelManager
 {
     private $_entity;
 
