@@ -2,7 +2,7 @@
 namespace SRC\Models;
 
 
-class Secteur
+class Secteur implements IModelManager
 {
   private $_libelle;
 

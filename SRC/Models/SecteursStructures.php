@@ -1,6 +1,8 @@
 <?php
 namespace SRC\Models;
 
+use SRC\Models\Manager\IModelManager;
+
 class SecteursStructure{
   private $_idSectStruct;
   private $_idStructure;
@@ -14,5 +16,3 @@ class SecteursStructure{
   }
 
 }
-
-?>

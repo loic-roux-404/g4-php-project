@@ -2,7 +2,6 @@
 
 namespace SRC\Models\Manager;
  
-
 class ModelManager implements IModelManager
 {
     private $_entity;

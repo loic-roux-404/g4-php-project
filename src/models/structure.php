@@ -1,7 +1,8 @@
 <?php
 namespace SRC\Models;
+namespace SRC\Models\Manager\IModelManager;
 
-class Structure extends IModelManager
+class Structure implements IModelManager
 {
   private $_idStructure;
   private $_nom;
