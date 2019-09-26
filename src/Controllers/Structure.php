@@ -31,7 +31,18 @@ class Structure extends ModelManager
     $this->_actionnaire = $actionnaire;
     $this->_donateur = $donateur;
   }
+  
+  public function index(int $id)
+  {
+    IModelManager::index(CLASS_NAME, $id);
+  }
+  public function fetchAll()
+  {
+    IModelManager::fetchAll(CLASS_NAME);
+  }
 
+  public function create()
+  { }
 
   /**
    * Get the value of _idStructure
@@ -158,15 +169,4 @@ class Structure extends ModelManager
   }
 
 
-  public function index(int $id)
-  {
-    IModelManager::index(CLASS_NAME, $id);
-  }
-  public function fetchAll()
-  {
-    IModelManager::fetchAll(CLASS_NAME);
-  }
-
-  public function create()
-  { }
 }
