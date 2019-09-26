@@ -45,7 +45,7 @@ include 'bootstrap.php';
                                     <td><?php echo $row['NOM']; ?></td>
                                     <td><?php echo $row['RUE']; ?></td>
                                     <td>
-                                        <button  name="id" value="<?php echo $row['ID']; ?>" class="btn btn-info">detail</button>
+                                        <button  name="id" value="<?php echo $row['ID']; ?>" class="btn btn-info">Détails</button>
                                     </td>
                                 </tr>
                                 <?php
@@ -79,7 +79,7 @@ include 'bootstrap.php';
                                     <td><?php echo $row['ID']; ?></td>
                                     <td><?php echo $row['LIBELLE']; ?></td>
                                     <td>
-                                        <button  name="id" value="<?php echo $row['id']; ?>" class="btn btn-info">Détail</button>
+                                        <button  name="id" value="<?php echo $row['id']; ?>" class="btn btn-info">Détails</button>
                                     </td>
                                 </tr>
                                 <?php
