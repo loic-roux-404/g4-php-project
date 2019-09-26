@@ -58,37 +58,34 @@ abstract class ModelManager
      * @return void
      */
 
-    public function update(string $en, int $id, array $data)
-    { }
+    public function update(string $en, array $data, int $toUpdateId)
+    {
+        $this->create($en, $data, $toUpdateId);
+    }
 
     /**
      * function create
      * @param string $en
      * @param array $data
+     * @param int $toUpdateId
      * @return void
      */
-    public function create(string $en, array $data): void
+    public function create(string $en, array $data, int $toUpdateId = null): void
     {
-        // prepare sql and bind parameters
-        //var_dump($data);
 
         $comma = "";
         $dots = "";
         $i = 0;
-        $fullQueriesArray = [":id" => NULL];
-        var_dump(count($data));
+        $fullQueriesArray = [":id" => $toUpdateId ? $toUpdateId : NULL];
+        var_dump($fullQueriesArray);
         foreach ($data as $cellName => $value) {
             var_dump($i);
             $i++;
 
-            $comma .= count($data) === $i? $cellName :  $cellName.', ';
+            $comma .= count($data) === $i ? $cellName : $cellName . ', ';
             $dots .=  count($data) === $i ? ':' . $cellName : ':' . $cellName . ', ';
 
-            $fullQueriesArray[":".$cellName] = $value;
-            // \var_dump($fullQueriesArray[":".$cellName]);
-            // \var_dump($comma);
-            // \var_dump($dots);
-            
+            $fullQueriesArray[":" . $cellName] = $value;
         }
         $stmt = self::connect()->prepare("insert into " . $en . "( id, " . $comma . ") values ( :id, " . $dots . ")");
         var_dump($stmt);
