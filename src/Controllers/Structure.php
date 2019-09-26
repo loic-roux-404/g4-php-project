@@ -1,13 +1,15 @@
 <?php
 
-namespace src\Models;
+namespace src\Controllers;
+
+use src\Models\ModelManager;
 
 class Structure extends ModelManager
 {
   /**
    * const Dataabse table value
    */
-  const CLASS_NAME = 'secteurs_structure';
+  const CLASS_NAME = 'structure';
 
   private $_idStructure;
   private $_nom;
