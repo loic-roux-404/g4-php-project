@@ -1,14 +1,12 @@
 <?php
-ini_set('display_errors', 1);
-/**
- * Autoloader
- */
-include 'bootstrap.php';
-/**
- * Namespaces
- */
 
-//use \SRC\Helpers\IFolders as F;
+use src\Autoloader;
+
+const VF = 'Views/partials/';
+
+//import 
+require_once 'bootstrap.php';
+Autoloader::register();
 
 ?>
 <!DOCTYPE html>

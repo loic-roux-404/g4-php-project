@@ -1,22 +1,37 @@
 <?php
-const VF = 'Views/';
-const MD = 'Models/';
-const CN = 'Controllers/';
-const CN_FO = 'Controllers/Form/';
-const HP = 'Helpers/';
-const MD_MA = 'Models/Manager/';
 
-foreach (array_merge(
-    glob(MD . "*.php"),
-    glob(CN . "*.php"),
-    glob(CN_FO . "*.php"),
-    glob(HP . "*.php"),
-    glob(MD_MA . "*.php")
-)
-    as $filename) {
-        if(ctype_upper($filename{0})){
-            print_r($filename);
-            require_once $filename;
-        }
+namespace src;
+
+define('DS', DIRECTORY_SEPARATOR);
+define('ROOT', strtolower($_SERVER['DOCUMENT_ROOT']) . DS);
+\session_start();
+//var_dump(ROOT);
+
+class Autoloader
+{
+
+    public static function register()
+    {
+        spl_autoload_register(array(__CLASS__, 'autoload'));
+    }
+
+    public static function autoload($class)
+    {
+
+        $parts = preg_split('#\\\#', $class);
+
+        $className = array_pop($parts);
+
+        array_shift($parts);
+
+        $path = implode(DS, $parts);
+
+        $file = $className . '.php';
+
+        $filepath = $path . DS . $file;
+
+        //var_dump(ROOT.$filepath);
+
+        require ROOT . $filepath;
+    }
 }
-
