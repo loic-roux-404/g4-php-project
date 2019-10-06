@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang='en'>
+<html lang='fr'>
 
 <head>
     <title>Projet G4</title>
@@ -10,5 +10,5 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 </head>
 
-<body>
+<body class="bg-dark">
     <div class="container">

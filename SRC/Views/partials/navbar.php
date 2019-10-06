@@ -1,4 +1,4 @@
-<nav class="navbar navbar-light border">
+<nav class="navbar navbar-light border ">
     <div class="container-fluid">
         <div class="navbar-header">
             <a class="navbar-brand" href="/">Structures</a>

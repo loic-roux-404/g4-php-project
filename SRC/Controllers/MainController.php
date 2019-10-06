@@ -2,10 +2,10 @@
 
 namespace SRC\Controllers;
 
-use SRC\Controllers\ControllerSecteur;
-use SRC\Controllers\ControllerStructure;
-use SRC\Controllers\ControllerSecteursStructures;
-use SRC\Helpers\UrlHelper;
+use \SRC\Controllers\ControllerSecteur;
+use \SRC\Controllers\ControllerStructure;
+use \SRC\Controllers\ControllerSecteursStructures;
+use \SRC\Helpers\UrlHelper;
 
 /**
  * Router class
@@ -22,7 +22,6 @@ class MainController
         require VFP . "navbar.php";
 
         $req = $this->_urlHelper->getRequest();
-
 
         switch ($this->_urlHelper->getURI()) {
             case '/':
@@ -41,8 +40,6 @@ class MainController
                 require VF . 'partials/404.php';
                 break;
         }
-
-        //$this->globals->unsetAlert();
 
         \SRC\reset_globs();
         require VFP . "footer.php";
