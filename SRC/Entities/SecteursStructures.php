@@ -14,12 +14,11 @@ class SecteursStructures extends ModelManager
 
   public function __construct()
   {
-    //var_dump($this);
     parent::__construct(get_object_vars($this));
   }
 
   /**
-   * var int
+   * @return int
    */
   final public function getIdStructure(): int
   {

@@ -4,6 +4,10 @@ namespace SRC\Helpers;
 
 use SRC\Helpers\Globals;
 
+/**
+ * Alert class
+ * Function to use status alert when using crud operations
+ */
 abstract class Alert
 {
     private $_globals;
@@ -13,26 +17,6 @@ abstract class Alert
     {
         $this->_globals = $_globals;
         $this->_alert = $this->getS('alert_session');
-    }
-
-    public function isRedirect()
-    {
-        $rs = $this->_globals->getS('redirect_status');
-        if (null !== $rs && 1 !== $rs) {
-            return false;
-        } else {
-            return true;
-        }
-    }
-
-    public function toggleRedirect()
-    {
-        $rs = $this->_globals->getS('redirect_status');
-        if (null !== $rs && 1 !== $rs) {
-            $this->_globals->setS('redirect_status', 1);
-        } else {
-            $this->_globals->setS('redirect_status', 0);
-        }
     }
 
     /**
@@ -47,7 +31,12 @@ abstract class Alert
     }
 
     /**
-     * Set the value of _message
+     * Build an alert
+     * @param $type : oparation
+     * @param $status : color for alert background
+     * @param $table
+     * @param $data : message
+     * @param $toUnset : choose to persist alert
      */
     public function setAlert($type, string $status,  $table = null, $data = null, $toUnset = true)
     {

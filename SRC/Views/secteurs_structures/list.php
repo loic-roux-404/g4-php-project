@@ -1,4 +1,5 @@
 <?php
+// La structure n'a pas de secteur
 $isAssociated = false;
 ?>
 <div class="row">

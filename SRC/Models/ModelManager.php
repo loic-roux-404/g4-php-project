@@ -6,7 +6,9 @@ namespace SRC\Models;
 use PDO;
 use PDOException;
 use SRC\Helpers\Globals;
-
+/**
+ * Mini ORM class
+ */
 abstract class ModelManager
 {
 
@@ -68,7 +70,7 @@ abstract class ModelManager
             $stmt->execute();
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {
-            $this->_globals->setAlert('error', 'danger', $this->_tn,  $e->getCode() . 'Impossible de récupérer les données');
+            $this->_globals->setAlert('error', 'danger', $this->_tn,  $e->getCode() . 'Impossible de récupérer les données' . $e->getMessage());
         }
     }
     /**
@@ -92,7 +94,7 @@ abstract class ModelManager
             $stmt->execute();
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {
-            $this->_globals->setAlert('error', 'danger', $this->_tn,  $e->getCode() . 'Impossible de récupérer la colonne');
+            $this->_globals->setAlert('error', 'danger', $this->_tn,  $e->getCode() . 'Impossible de récupérer la colonne <hr>' . $e->getMessage());
         }
     }
 
@@ -144,7 +146,7 @@ abstract class ModelManager
             if ($e->errorInfo[1] == 1062) {
                 $this->_globals->setAlert('error', 'danger', $this->_tn,  'Cet enregistrement existe');
             } else {
-                $this->_globals->setAlert('error', 'danger', $this->_tn,  'echec de la mise à jour<br>' . $e);
+                $this->_globals->setAlert('error', 'danger', $this->_tn,  'echec de la mise à jour<br>' . $e->getMessage());
             }
         }
     }
@@ -180,14 +182,13 @@ abstract class ModelManager
             if ($e->errorInfo[1] == 1062) {
                 $this->_globals->setAlert('error', 'danger', $this->_tn, 'Cet enregistrement existe');
             } else {
-                $this->_globals->setAlert('error', 'danger', $this->_tn, 'echec de l\'ajout<br>' . $e);
+                $this->_globals->setAlert('error', 'danger', $this->_tn, 'echec de l\'ajout<br>' . $e->getMessage());
             }
         }
     }
 
     /**
      * function delete
-     *
      * @param string $_tn
      * @param integer $id
      * @return void

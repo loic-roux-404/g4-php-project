@@ -10,5 +10,5 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 </head>
 
-<body class="bg-dark">
+<body>
     <div class="container">

@@ -8,9 +8,9 @@ use src\Entities\Structure;
 use src\Entities\Secteur;
 use SRC\Forms\FormBuilder;
 
-
 /**
  * Override Abtract controller class (specific case)
+ * Loading a special case function
  */
 class ControllerSecteursStructures extends AbstractController
 {
@@ -28,7 +28,6 @@ class ControllerSecteursStructures extends AbstractController
         $this->_structure = new Structure();
         $this->_builder = new FormBuilder($this->_entity, $this->route);
         $this->specialCase();
-        //$this->loadRoutes($req);
     }
     /**
      * Too specific controller to use basic crud of AbstractController
@@ -44,11 +43,9 @@ class ControllerSecteursStructures extends AbstractController
         }
 
         $this->_data = $this->_entity->customQuery(
-            "SELECT secteur.ID as ID_SECTEUR, structure.ID as ID_STRUCTURE, structure.NOM, secteurs_structures.ID
-        FROM secteur
-        LEFT OUTER JOIN secteurs_structures ON secteur.ID = secteurs_structures.ID_SECTEUR
-        RIGHT OUTER JOIN structure  ON structure.ID = secteurs_structures.ID_STRUCTURE
-        ",
+        "SELECT secteur.ID as ID_SECTEUR, structure.ID as ID_STRUCTURE, structure.NOM, secteurs_structures.ID
+        FROM secteur LEFT OUTER JOIN secteurs_structures ON secteur.ID = secteurs_structures.ID_SECTEUR
+        RIGHT OUTER JOIN structure  ON structure.ID = secteurs_structures.ID_STRUCTURE",
             true
         );
 
@@ -59,7 +56,6 @@ class ControllerSecteursStructures extends AbstractController
     /**¨
      * Override form functions
      */
-
     public function deleteCase()
     {
         if (isset($_POST["ID_SECTEUR"]) && $_POST["ID_SECTEUR"] === "delete") {
@@ -73,7 +69,7 @@ class ControllerSecteursStructures extends AbstractController
     }
 
     /**
-     * Set the value of _data
+     * Set the value of data
      */
     public function setData($_data)
     {

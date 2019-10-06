@@ -9,11 +9,9 @@ class Secteur extends ModelManager
     const TABLE_NAME = 'secteur';
 
     private $libelle = '';
-    //private $entity;
 
     public function __construct()
     {
-        //array_pop($tmpVars);
         parent::__construct(get_object_vars($this));
     }
 

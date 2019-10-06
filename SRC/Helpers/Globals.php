@@ -100,11 +100,18 @@ class Globals extends Alert
         return (json_last_error() == JSON_ERROR_NONE);
     }
 
+    /**
+     * A crud opeation happened
+     * @param [int] $id
+     */
     public function setUpdated($id)
     {
         $this->setS('updated', $id);
     }
-
+    /**
+     * test if operation happened
+     * @param [int] $id
+     */
     public function getUpdated()
     {
         return (int) $this->getS('updated');
