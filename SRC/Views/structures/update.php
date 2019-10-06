@@ -29,10 +29,10 @@
                 </div>
             </div>
             <div class="col-xl-4 py-2">
-                <input class="form-control" type="number" name="NB_DONATEURS" maxlength="11" placeholder="Nombre donnateurs" value="<?php echo $this->_data['NB_DONATEURS'] ?? 0 ?>">
+                <input class="form-control" type="number" name="NB_DONATEURS" max="99999999999" placeholder="Nombre donnateurs" value="<?php echo $this->_data['NB_DONATEURS'] ?? 0 ?>">
             </div>
             <div class="col-xl-4 py-2">
-                <input class="form-control" type="number" name="NB_ACTIONNAIRES" maxlength="11" placeholder="Nombre actionnaires" value="<?php echo $this->_data['NB_ACTIONNAIRES'] ?? 0 ?>">
+                <input class="form-control" type="number" name="NB_ACTIONNAIRES" max="99999999999" placeholder="Nombre actionnaires" value="<?php echo $this->_data['NB_ACTIONNAIRES'] ?? 0 ?>">
             </div>
         </div>
     </div>
