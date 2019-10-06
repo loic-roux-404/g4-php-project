@@ -202,7 +202,7 @@ abstract class ModelManager
         } catch (PDOException $e) {
             //var_dump($e);
             if ($e->errorInfo[1] == 1217) {
-                $this->_globals->setAlert('error', 'danger', $this->_tn, ' Supprimer d\'abord l\'enregistrement associé');
+                $this->_globals->setAlert('error', 'danger', $this->_tn, ' Retirer d\'abord l\'enregistrement associé');
             } else {
                 $this->_globals->setAlert('error', 'danger', $this->_tn, ' Echec de la suppression');
             }
