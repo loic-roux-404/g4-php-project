@@ -21,7 +21,6 @@ class Autoloader
 
     public static function autoload($class)
     {
-
         $parts = preg_split('#\\\#', $class);
         $className = array_pop($parts);
         array_shift($parts);
@@ -30,14 +29,25 @@ class Autoloader
         $file = $className . '.php';
         $filepath = $path . DS . $file;
 
-        //var_dump(ROOT.$filepath);
-
         require ROOT . $filepath;
     }
-
 }
 
+/**
+ * Reset programmaticly globals variables
+ * @return void
+ */
 function reset_globs(){
     $_POST = array();
     $_GET = array();
+}
+
+/**
+ * Better var_dump function
+ * @param [mixed] $var to debug
+ */
+function dump($var){
+    echo "<pre>";
+    var_dump($var);
+    echo "</pre>";
 }

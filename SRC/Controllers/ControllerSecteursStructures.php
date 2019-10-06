@@ -30,10 +30,13 @@ class ControllerSecteursStructures extends AbstractController
         $this->specialCase();
         //$this->loadRoutes($req);
     }
-
+    /**
+     * Too specific controller to use basic crud of AbstractController
+     * Manage an association with this special case
+     * @return void
+     */
     public function specialCase()
     {
-        //
         $del = $this->deleteCase();
         if (!$del) {
             $this->_builder->submitUpdate();
@@ -69,9 +72,6 @@ class ControllerSecteursStructures extends AbstractController
         }
     }
 
-    // public function submitCreate(){
-
-    // } 
     /**
      * Set the value of _data
      */

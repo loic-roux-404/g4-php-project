@@ -13,17 +13,22 @@
 
 -  VF = 'Views/';
 -  MD = 'Models/';
--  CN = 'Controllers/';
--  CN_FO = 'Controllers/Form/';
--  HP = 'Helpers/';
--  MD_MA = 'Models/Manager/';
 
-**MVC**
+
+
+**MVC**<br>
 ![MVC](docs/consigne/MVC.jpg)
 
 
-**Modèle**
+**Modèle**<br>
 ![Modèle](docs/consigne/GL3_1920_PHP_TP_noté_structures.PNG)
 
 
 
+**Cas spécifique association secteurs structures**<br>
+&rarr; La jointure [Conntroller association s/s](SRC/Controllers/ControllerSecteursStructures.php)
+Jointure récupérant toutes les données des tables associées
+Fusionne les données en communs (id équivalents) dans une case de tableau 
+On injecte ainsi dans les vues les données nécéssaires aux traitement
+Les LEFT et RIGHT nous permettent de remplacer par des NULL si il n'y a pas d'association entre les deux tables
+Aisni on se contente d'une seule requète SQL

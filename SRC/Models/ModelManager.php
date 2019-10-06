@@ -127,7 +127,6 @@ abstract class ModelManager
 
     public function update(array $data, int $toUpdateId): void
     {
-        //var_dump($data);
         $update = "";
         $i = 0;
         $fullQueriesArray = [":id" => $toUpdateId];
@@ -135,11 +134,9 @@ abstract class ModelManager
             $i++;
             //var_dump($cellName);
             $update .=  count($data) === $i ? $cellName . '=:' . $cellName : $cellName . '=:' . $cellName . ', ';
-            $fullQueriesArray[":" . $cellName] = !empty($value) ? $value : null;
+            $fullQueriesArray[":" . $cellName] = $value;
         }
-
         $stmt = self::connect()->prepare("UPDATE " . $this->_tn . " SET " . $update . " WHERE id=:id");
-        //var_dump($stmt);
         try {
             $stmt->execute($fullQueriesArray);
             $this->_globals->setAlert('update', 'success', $this->_tn,  reset($data));

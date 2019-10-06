@@ -85,7 +85,6 @@ class Globals extends Alert
      * @param string $nom
      * @param [array|string] $payload
      */
-
     public function setC($nom, $payload)
     {
         if (is_array($payload)) {

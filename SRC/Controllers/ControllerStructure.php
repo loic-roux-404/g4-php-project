@@ -12,16 +12,11 @@ class ControllerStructure extends AbstractController
 {
     public $route = 'structures';
     private $_entity;
-    private $_builder;
-    private $_data;
 
     public function __construct(string $req = null)
     {
-
         $this->_entity = new Structure;
-        //if ($this->specialCase()) {
-            parent::__construct($this->route, $this->_entity, $req, $this->specialCase());
-        //} 
+        parent::__construct($this->route, $this->_entity, $req, $this->specialCase());
     }
     /**
      * Add this function to execute Entity specific programs
@@ -33,7 +28,6 @@ class ControllerStructure extends AbstractController
         $isAsso = null;
         $hasDonn = null;
         $hasActio = null;
-        //var_dump($_POST);
 
         if (isset($_POST['ESTASSO'])) {
             $isAsso = (int) $_POST['ESTASSO'];
@@ -46,23 +40,13 @@ class ControllerStructure extends AbstractController
         }
 
         if ($isAsso === 1 && $hasActio) {
-            echo "<br> no asso ";
             (new Globals())->setAlert('error', 'danger', null, 'Une association na pas d\'actionnaires', false);
             return true;
         } else if ($isAsso === 0 && $hasDonn) {
-            echo "<br> no ent ";
             (new Globals())->setAlert('error', 'danger', null, 'Une entreprise na pas de donnateurs', false);
             return true;
         } else {
             return false;
         }
-    }
-
-    /**
-     * Set the value of data
-     */
-    public function setData($_data)
-    {
-        $this->_data = $_data;
     }
 }

@@ -7,7 +7,7 @@ use SRC\Helpers\Globals;
 use SRC\Helpers\UrlHelper;
 
 /**
- * Class : use this for a simple CRUD SYSTEM with no form verification
+ * Class : use this for a simple CRUD SYSTEM
  */
 abstract class AbstractController
 {
@@ -29,6 +29,7 @@ abstract class AbstractController
         $this->special = $special;
         $this->loadRoutes($req);
     }
+
     /**
      * Second routing phase
      * $req is second part of url (representing crud operations)
@@ -56,9 +57,9 @@ abstract class AbstractController
     {
         $this->_data = $this->_entity->fetch();
         if (!$this->special) {
-            $tmp = $this->_builder->submitCreate();
-            if ($tmp) {
-                array_push($this->_data, $tmp);
+            $newData = $this->_builder->submitCreate();
+            if ($newData) {
+                array_push($this->_data, $newData);
             }
         }
         require VF . "{$this->route}/list.php";
@@ -78,6 +79,7 @@ abstract class AbstractController
 
         require VF . "{$this->route}/update.php";
     }
+
     /**
      * Avoid delete twice and duplicate alerts
      * @return void

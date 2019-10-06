@@ -2,6 +2,9 @@
 
 namespace SRC\Helpers;
 
+/**
+ * Class to manage url's and get requests
+ */
 class UrlHelper
 {
     private $request;
@@ -11,20 +14,18 @@ class UrlHelper
     public function __construct()
     {
         $uri = parse_url(URI);
-        //var_dump($_SERVER['REQUEST_URI'] === URI);
         if (isset($uri['query'])) {
             $operation = explode('/', $uri['path'])[2];
             $this->request = '/' . $operation . '?' . $uri['query'];
         }
-        //var_dump($uri['path']);
         $this->fullUrl();
         $this->URI = URI;
     }
 
-    public function setRequest(){
-        
-    }
-
+    /**
+     * Set url
+     * @return void
+     */
     public function fullUrl()
     {
         $base_dir = __DIR__;
@@ -49,7 +50,7 @@ class UrlHelper
     }
 
     /**
-     * Get the value of getRequest
+     * Get the value of Request ($_GET)
      */
     public function getRequest()
     {

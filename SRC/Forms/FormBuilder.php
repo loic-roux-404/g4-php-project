@@ -27,6 +27,7 @@ class FormBuilder
     }
     /**
      * Update values
+     * Watch a simple submit button or create/update buttons
      * @return void
      */
     public function submitUpdate(): void
@@ -41,7 +42,7 @@ class FormBuilder
     }
     /**
      * Create function
-     * conditionnaly returning an array added to main data
+     * Conditionnaly returning an array added to main data
      * @param boolean $isReturning
      * @return bool|null
      */
@@ -58,7 +59,8 @@ class FormBuilder
     }
 
     /**
-     * generate object to send to db
+     * Generate object to send to db
+     * Inject types and values for compatibility with DB
      * @return array
      */
     public function genPayload(): array
@@ -66,7 +68,6 @@ class FormBuilder
         $payload = [];
 
         foreach ($this->_modelsAndTypes as $cellKey => $type) {
-
             $ck = strtoupper($cellKey);
             if (isset($_POST[$ck])) {
                 if ($type === 'IntNull' && !is_int($_POST[$ck])) {

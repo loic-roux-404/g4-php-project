@@ -1,8 +1,6 @@
 <?php
 $isAssociated = false;
-
 ?>
-
 <div class="row">
     <?php foreach ($this->_data as $values) :; ?>
         <div class="col-md-4 my-2">
@@ -24,6 +22,7 @@ $isAssociated = false;
                         <option value="delete" <?php echo !$isAssociated ? 'selected' : ''; ?>>Pas de secteur</option>
                     </select>
                 </div>
+                
                 <input type="hidden" name="ID_STRUCTURE" value="<?php echo $values["ID_STRUCTURE"]; ?>">
                 <input type="hidden" name="ID" value="<?php echo $values['ID']?>">
 
