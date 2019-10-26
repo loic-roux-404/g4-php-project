@@ -174,8 +174,7 @@ abstract class ModelManager
 
         try {
             $stmt->execute($fullQueriesArray);
-            //var_dump(reset($data));
-            //return $conn->lastInsertId();;
+
             $this->_globals->setAlert('create', 'success', $this->_tn, reset($data) . " ajouté");
             return (int) $db->lastInsertId();
         } catch (PDOException $e) {
