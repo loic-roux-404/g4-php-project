@@ -1,4 +1,5 @@
 <?php
+
 namespace SRC;
 
 define('DS', DIRECTORY_SEPARATOR);
@@ -9,11 +10,13 @@ define('VFP', ROOT . 'Views/partials/');
 define('URI', $_SERVER['REQUEST_URI']);
 define('DOM', $_SERVER['SERVER_NAME']);
 /**
- * Class import by namespace (following directories organisation)
+ * Autoloader class :  Automatic load classes by namespace
+ *
+ * @package Autoloader
+ * @link    loicroux.fr
  */
 class Autoloader
 {
-
     public static function register()
     {
         spl_autoload_register(array(__CLASS__, 'autoload'));
@@ -29,15 +32,15 @@ class Autoloader
         $file = $className . '.php';
         $filepath = $path . DS . $file;
 
-        require ROOT . $filepath;
+        include ROOT . $filepath;
     }
 }
-
 /**
  * Reset programmaticly globals variables
  * @return void
  */
-function reset_globs(){
+function reset_globs()
+{
     $_POST = array();
     $_GET = array();
 }
@@ -46,7 +49,8 @@ function reset_globs(){
  * Better var_dump function
  * @param [mixed] $var to debug
  */
-function dump($var){
+function dump($var)
+{
     echo "<pre>";
     var_dump($var);
     echo "</pre>";

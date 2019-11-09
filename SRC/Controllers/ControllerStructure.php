@@ -4,6 +4,7 @@ namespace SRC\Controllers;
 
 use src\Entities\Structure;
 use src\Helpers\Globals;
+use src\Controllers\AbstractController;
 
 /**
  * Override Abtract controller class (specific case)
@@ -42,7 +43,7 @@ class ControllerStructure extends AbstractController
         if ($isAsso === 1 && $hasActio) {
             (new Globals())->setAlert('error', 'danger', null, 'Une association na pas d\'actionnaires', false);
             return true;
-        } else if ($isAsso === 0 && $hasDonn) {
+        } elseif ($isAsso === 0 && $hasDonn) {
             (new Globals())->setAlert('error', 'danger', null, 'Une entreprise na pas de donnateurs', false);
             return true;
         } else {

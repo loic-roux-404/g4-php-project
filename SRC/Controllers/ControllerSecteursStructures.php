@@ -43,7 +43,7 @@ class ControllerSecteursStructures extends AbstractController
         }
 
         $this->_data = $this->_entity->customQuery(
-        "SELECT secteur.ID as ID_SECTEUR, structure.ID as ID_STRUCTURE, structure.NOM, secteurs_structures.ID
+            "SELECT secteur.ID as ID_SECTEUR, structure.ID as ID_STRUCTURE, structure.NOM, secteurs_structures.ID
         FROM secteur LEFT OUTER JOIN secteurs_structures ON secteur.ID = secteurs_structures.ID_SECTEUR
         RIGHT OUTER JOIN structure  ON structure.ID = secteurs_structures.ID_STRUCTURE",
             true

@@ -5,7 +5,6 @@ namespace SRC\Forms;
 use SRC\Helpers\Globals;
 use SRC\Helpers\UrlHelper;
 
-
 /**
  * Class to manage forms and submissions
  */
@@ -72,7 +71,7 @@ class FormBuilder
             if (isset($_POST[$ck])) {
                 if ($type === 'IntNull' && !is_int($_POST[$ck])) {
                     settype($_POST[$ck], "int");
-                } else if (!is_int($_POST[$ck])) {
+                } elseif (!is_int($_POST[$ck])) {
                     settype($_POST[$ck], $type);
                 }
                 $payload[$ck] = $_POST[$ck];
@@ -94,7 +93,9 @@ class FormBuilder
         $this->_modelsAndTypes = [];
         for ($i = 0; sizeof($model) > $i; $i++) {
             $modelKey = array_keys($model)[$i];
-            $this->_modelsAndTypes[$modelKey] = $refl[$i]->getReturnType() ? $refl[$i]->getReturnType()->getName() : null;
+
+            $rtype = $refl[$i]->getReturnType();
+            $this->_modelsAndTypes[$modelKey] = $rtype ? $rtype->getName() : null;
         }
     }
 }

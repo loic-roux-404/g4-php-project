@@ -6,7 +6,6 @@ use SRC\Helpers\Alert;
 
 class Globals extends Alert
 {
-
     public function __construct()
     {
         parent::__construct($this);
@@ -35,7 +34,7 @@ class Globals extends Alert
     }
 
     /**
-     * Getter Session 
+     * Getter Session
      * @param [string] $nom
      * @return array|string
      */

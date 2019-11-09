@@ -10,6 +10,3 @@ require_once 'bootstrap.php';
 Autoloader::register();
 
 new MainController();
-
-
-?>

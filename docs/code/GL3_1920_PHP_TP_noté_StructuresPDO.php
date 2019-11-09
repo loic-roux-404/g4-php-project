@@ -11,7 +11,7 @@ try {
 
     // prepare sql and bind parameters
     $stmt = $conn->prepare("insert into secteur (id, libelle) values (:id, :libelle)");
-    $stmt->execute([":id" => NULL, ":libelle" => "Informatique".rand()]);
+    $stmt->execute([":id" => null, ":libelle" => "Informatique".rand()]);
 
     echo "New records created successfully";
 
@@ -32,10 +32,7 @@ try {
         echo $line["ID"]." ".$line["NOM"]."<br/>";
     }
     var_dump($line);
-}
-catch(Exception $e)
-{
+} catch (Exception $e) {
     echo "Error: " . $e->getMessage();
 }
 $conn = null;
-?>

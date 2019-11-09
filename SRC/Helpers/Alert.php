@@ -38,7 +38,7 @@ abstract class Alert
      * @param $data : message
      * @param $toUnset : choose to persist alert
      */
-    public function setAlert($type, string $status,  $table = null, $data = null, $toUnset = true)
+    public function setAlert($type, string $status, $table = null, $data = null, $toUnset = true)
     {
         $message = "";
         switch ($type) {

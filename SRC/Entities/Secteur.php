@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @package Entites
+ * @author  Loic Roux <loic.roux.404@gmail.com>
+ */
+
 namespace SRC\Entities;
 
 use SRC\Models\ModelManager;
@@ -23,5 +28,4 @@ class Secteur extends ModelManager
     {
         return $this->libelle;
     }
-
 }

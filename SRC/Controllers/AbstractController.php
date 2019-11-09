@@ -39,9 +39,9 @@ abstract class AbstractController
     {
         if (!$req) {
             $this->listView();
-        } else if (strpos($req, 'update')) {
+        } elseif (strpos($req, 'update')) {
             $this->updateView();
-        } else if (strpos($req, 'delete')) {
+        } elseif (strpos($req, 'delete')) {
             $this->onDelete();
             $this->listView();
         }

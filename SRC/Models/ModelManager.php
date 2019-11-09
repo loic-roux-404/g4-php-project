@@ -2,21 +2,20 @@
 
 namespace SRC\Models;
 
-//use src\Models\IModelManager;
 use PDO;
 use PDOException;
 use SRC\Helpers\Globals;
+
 /**
  * Mini ORM class
  */
 abstract class ModelManager
 {
-
     protected const PW = "IL3tuUFSCQ";
     protected const USR = "mVrrTxQ5nS";
 
     /**
-     * Table name 
+     * Table name
      * @var [string]
      */
     protected $_tn;
@@ -70,7 +69,7 @@ abstract class ModelManager
             $stmt->execute();
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {
-            $this->_globals->setAlert('error', 'danger', $this->_tn,  $e->getCode() . 'Impossible de récupérer les données' . $e->getMessage());
+            $this->_globals->setAlert('error', 'danger', $this->_tn, $e->getCode() . 'Impossible de récupérer les données' . $e->getMessage());
         }
     }
     /**
@@ -94,7 +93,7 @@ abstract class ModelManager
             $stmt->execute();
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {
-            $this->_globals->setAlert('error', 'danger', $this->_tn,  $e->getCode() . 'Impossible de récupérer la colonne <hr>' . $e->getMessage());
+            $this->_globals->setAlert('error', 'danger', $this->_tn, $e->getCode() . 'Impossible de récupérer la colonne <hr>' . $e->getMessage());
         }
     }
 
@@ -116,7 +115,7 @@ abstract class ModelManager
                 $stmt->execute();
             }
         } catch (PDOException $e) {
-            $this->_globals->setAlert('error', 'danger', $this->_tn,  'Erreur de requète personnalisée <hr> ' . $e->getMessage());
+            $this->_globals->setAlert('error', 'danger', $this->_tn, 'Erreur de requète personnalisée <hr> ' . $e->getMessage());
         }
     }
 
@@ -141,12 +140,12 @@ abstract class ModelManager
         $stmt = self::connect()->prepare("UPDATE " . $this->_tn . " SET " . $update . " WHERE id=:id");
         try {
             $stmt->execute($fullQueriesArray);
-            $this->_globals->setAlert('update', 'success', $this->_tn,  reset($data));
+            $this->_globals->setAlert('update', 'success', $this->_tn, reset($data));
         } catch (PDOException $e) {
             if ($e->errorInfo[1] == 1062) {
-                $this->_globals->setAlert('error', 'danger', $this->_tn,  'Cet enregistrement existe');
+                $this->_globals->setAlert('error', 'danger', $this->_tn, 'Cet enregistrement existe');
             } else {
-                $this->_globals->setAlert('error', 'danger', $this->_tn,  'echec de la mise à jour<br>' . $e->getMessage());
+                $this->_globals->setAlert('error', 'danger', $this->_tn, 'echec de la mise à jour<br>' . $e->getMessage());
             }
         }
     }
@@ -162,7 +161,7 @@ abstract class ModelManager
         $comma = "";
         $dots = "";
         $i = 0;
-        $fullQueriesArray = [":id" => NULL];
+        $fullQueriesArray = [":id" => null];
         foreach ($data as $cellName => $value) {
             $i++;
             $comma .= count($data) === $i ? $cellName : $cellName . ', ';
